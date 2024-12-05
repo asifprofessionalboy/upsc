@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Icons with Badges</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* General Styles */
-    body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden; /* Prevent horizontal scrolling */
-      font-family: Arial, sans-serif;
-    }
-
-    .mycontainer {
+<style>
+        body{
+            overflow-x:hidden;
+        }
+          .mycontainer {
       position: absolute;
-      top: 50%;
-      left: 0;
+      top: 75%;
+      left: 80px;
       transform: translateY(-50%);
       display: flex;
       flex-direction: column-reverse;
@@ -30,7 +18,7 @@
       flex-direction: column;
       justify-content: center;
       background-color: #fff;
-      padding: 6px;
+      padding: 10px 5px;
       border-radius: 6px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
       transform: translateX(555%); /* Hide off-screen */
@@ -41,7 +29,8 @@
 
     .close-btn.open ~ .media-icons {
       transform: translateX(0); /* Bring it back into view */
-      right: 0;
+      right: -10px;
+             margin-bottom:50px
     }
 
     .media-icons a {
@@ -101,7 +90,7 @@
       color: #fff;
       font-size: 18px;
       margin-top: 20px;
-      background-color: #8e36ff;
+      background-color: #0c4aaf;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
       cursor: pointer;
       transform: rotate(45deg);
@@ -116,12 +105,12 @@
     /* Badge styling */
     .badge {
       position: absolute;
-      top: -5px;
-      right: -5px;
-      background-color: #ff0000;
+      top: -10px;
+      right: -10px;
+      background-color: #f9232e;
       color: #fff;
       font-size: 12px;
-      font-weight: bold;
+      font-weight: 500;
       padding: 2px 6px;
       border-radius: 50%;
       z-index: 1;
@@ -135,22 +124,29 @@
 
     /* Responsive Design for Mobile */
     @media screen and (max-width: 768px) {
+
+        body{
+            overflow-x:hidden;
+        }
+
       .mycontainer {
-        top: 10%;
-        left: 10px;
+        top: 60%;
+        left: 150px;
         transform: translateY(0);
         align-items: flex-start;
       }
 
       .media-icons {
-        transform: translateX(150%);
+        transform: translateX(515%);
         padding: 4px;
         right: -150%;
+        margin-bottom:50px;
       }
 
       .close-btn.open ~ .media-icons {
         transform: translateX(0);
-        right: 10px;
+        right: -6px;
+ 
       }
 
       .media-icons a {
@@ -178,41 +174,40 @@
         right: -3px;
       }
     }
-  </style>
-</head>
-<body>
-  <div class="mycontainer">
+
+    </style>
+
+
+<div class="mycontainer">
     <span class="close-btn">
       <i class="fa-solid fa-xmark"></i>
     </span>
     <div class="media-icons">
-      <a href="#" style="background: #e60023">
-        <i class="fa-brands fa-pinterest"></i>
+      <a href="#" style="background: #bfb434">
+<i class="fa-solid fa-ban"></i>
         <span class="badge">5</span>
-        <span class="tooltip" style="color: #e60023">Pinterest</span>
+        <span class="tooltip" style="color: #bfb434">Blocked/UnBlocked</span>
       </a>
       <a href="#" style="background: #0e76a8">
-        <i class="fa-brands fa-linkedin"></i>
+    <i class="fa-solid fa-circle-exclamation"></i>
         <span class="badge">3</span>
-        <span class="tooltip" style="color: #0e76a8">Linkedin</span>
+        <span class="tooltip" style="color: #0e76a8">Grievance</span>
       </a>
-      <a href="#" style="background: #ff0000">
-        <i class="fa-brands fa-youtube"></i>
+      <a href="#" style="background: #23b6cd">
+  <i class="fa-solid fa-building-columns"></i>
         <span class="badge">7</span>
-        <span class="tooltip" style="color: #ff0000">YouTube</span>
+        <span class="tooltip" style="color: #23b6cd">Government</span>
       </a>
-      <a href="#" style="background: #ea4689">
-        <i class="fa-brands fa-dribbble"></i>
-        <span class="badge">2</span>
-        <span class="tooltip" style="color: #ea4689">Dribbble</span>
-      </a>
+ 
     </div>
-  </div>
+
+
+                   </div>
+
+
   <script>
-    const closeBtn = document.querySelector(".close-btn");
-    closeBtn.addEventListener("click", () => {
-      closeBtn.classList.toggle("open");
-    });
-  </script>
-</body>
-</html>
+                               const closeBtn = document.querySelector(".close-btn");
+                               closeBtn.addEventListener("click", () => {
+                                   closeBtn.classList.toggle("open");
+                               });
+                           </script>
