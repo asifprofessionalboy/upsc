@@ -1,27 +1,14 @@
-<div class="mycontainer">
-    <span class="close-btn">
-        <i class="fa-solid fa-xmark"></i>
-    </span>
-    <div class="media-icons">
-        <a href="#" style="background: #bfb434">
-            <i class="fa-solid fa-ban"></i>
-            <span class="badge">5</span>
-            <span class="tooltip" style="color: #bfb434">Blocked/UnBlocked</span>
-        </a>
-        <a href="#" style="background: #0e76a8">
-            <i class="fa-solid fa-circle-exclamation"></i>
-            <span class="badge">3</span>
-            <span class="tooltip" style="color: #0e76a8">Grievance</span>
-        </a>
-        <a href="#" style="background: #23b6cd">
-            <i class="fa-solid fa-building-columns"></i>
-            <span class="badge">7</span>
-            <span class="tooltip" style="color: #23b6cd">Government</span>
-        </a>
-    </div>
-</div>
+const toggleBtn = document.querySelector(".toggle-btn");
+const mediaIcons = document.querySelector(".media-icons");
+
+// Add click event for toggle functionality
+toggleBtn.addEventListener("click", () => {
+    toggleBtn.classList.toggle("open"); // Animate plus-to-X
+    mediaIcons.classList.toggle("open"); // Show/hide media icons
+});
 
 
+/* Body style to prevent scrolling issues */
 body {
     margin: 0;
     padding: 0;
@@ -29,15 +16,41 @@ body {
     overflow-x: hidden;
 }
 
+/* Main container positioning */
 .mycontainer {
     position: absolute;
-    top: 75%;
-    left: 80px;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
 }
 
+/* Button (toggle) styling */
+.toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #0c4aaf;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease-in-out;
+}
+
+/* Plus-to-X animation */
+.toggle-btn.open {
+    transform: rotate(45deg);
+    background-color: #de0611;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Media icons container */
 .media-icons {
     display: flex;
     align-items: flex-start;
@@ -48,38 +61,19 @@ body {
     border-radius: 6px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     position: absolute;
-    right: 0;
-    transform-origin: top right;
+    transform-origin: top left;
     transform: scale(0);
     opacity: 0;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.close-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 35px;
-    width: 35px;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 18px;
-    margin-top: 20px;
-    background-color: #0c4aaf;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: all 0.5s ease;
-}
-
-.close-btn.open {
-    background-color: #de0611;
-}
-
+/* Open state of media icons */
 .media-icons.open {
     transform: scale(1);
     opacity: 1;
 }
 
+/* Individual media icons styling */
 .media-icons a {
     text-decoration: none;
     position: relative;
@@ -96,6 +90,7 @@ body {
     color: #fff;
 }
 
+/* Tooltip styling */
 .media-icons a .tooltip {
     position: absolute;
     left: 55px;
@@ -127,6 +122,7 @@ a .tooltip::before {
     background-color: #fff;
 }
 
+/* Badge styling */
 .badge {
     position: absolute;
     top: -10px;
@@ -141,17 +137,12 @@ a .tooltip::before {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Responsive design for mobile */
 @media screen and (max-width: 768px) {
-    .mycontainer {
-        top: 60%;
-        left: 50px;
-        align-items: flex-start;
-    }
-
-    .close-btn {
-        height: 30px;
-        width: 30px;
-        font-size: 16px;
+    .toggle-btn {
+        height: 40px;
+        width: 40px;
+        font-size: 20px;
     }
 
     .media-icons a {
@@ -169,15 +160,31 @@ a .tooltip::before {
     .badge {
         font-size: 10px;
         padding: 1px 4px;
-        top: -3px;
-        right: -3px;
+        top: -5px;
+        right: -5px;
     }
 }
 
-const closeBtn = document.querySelector(".close-btn");
-const mediaIcons = document.querySelector(".media-icons");
 
-closeBtn.addEventListener("click", () => {
-    closeBtn.classList.toggle("open");
-    mediaIcons.classList.toggle("open");
-});
+<div class="mycontainer">
+    <span class="toggle-btn">
+        <i class="fa-solid fa-plus"></i>
+    </span>
+    <div class="media-icons">
+        <a href="#" style="background: #bfb434">
+            <i class="fa-solid fa-ban"></i>
+            <span class="badge">5</span>
+            <span class="tooltip" style="color: #bfb434">Blocked/UnBlocked</span>
+        </a>
+        <a href="#" style="background: #0e76a8">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span class="badge">3</span>
+            <span class="tooltip" style="color: #0e76a8">Grievance</span>
+        </a>
+        <a href="#" style="background: #23b6cd">
+            <i class="fa-solid fa-building-columns"></i>
+            <span class="badge">7</span>
+            <span class="tooltip" style="color: #23b6cd">Government</span>
+        </a>
+    </div>
+</div>
